@@ -1,4 +1,4 @@
-from model import Person, find_common_ancestors, is_related
+from model import Person, find_common_ancestor, is_related
 import view
 
 #generation 1
@@ -25,7 +25,7 @@ view.show(hans)
 
 pairs = [(nikolaj, sofie), (nikolaj, mads), (anne, jens)]
 for a, b in pairs:
-    names = [p.name for p in find_common_ancestors(a, b)]
+    names = [p.name for p in find_common_ancestor(a, b)]
     view.show(f"{a.name} og {b.name}: fælles aner = {names}, "
               f"i familie = {is_related(a, b)}")
 view.draw_tree(family)
