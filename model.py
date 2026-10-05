@@ -12,7 +12,7 @@ class Person():
     def get_parents(self):
         return [p for p in (self.mother, self.father) if p]
 
-    def ancenstors(self):
+    def ancestors(self):
         result = set()
         for parent in person.parent():
             result.add(parent)
@@ -20,6 +20,9 @@ class Person():
             return result 
 
     def find_common_ancestor(a,b):
-        return list (ancest)
+        return list (ancestors(a) & ancestors(b))
+    
+    def is_related(a,b):
+        return len(find_common_ancestor(a,b)) > 0
 
         
