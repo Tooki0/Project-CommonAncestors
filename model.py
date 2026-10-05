@@ -16,6 +16,10 @@ class Person():
         result = set()
         for parent in person.parent():
             result.add(parent)
+            result |=ancestors(parent)
             return result 
+
+    def find_common_ancestor(a,b):
+        return list (ancest)
 
         
