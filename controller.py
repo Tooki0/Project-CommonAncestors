@@ -19,3 +19,13 @@ sofie=Person("Sofie", mother=anne, father=peter)
 mads=Person("Mads", mother=lise, father=jens)
 
 family = [ole, inge, hans, grethe, jens, anne, peter, lise, nikolaj, sofie, mads]
+
+view.show(nikolaj)
+view.show(hans)
+
+pairs = [(nikolaj, sofie), (nikolaj, mads), (anne, jens)]
+for a, b in pairs:
+    names = [p.name for p in find_common_ancestors(a, b)]
+    view.show(f"{a.name} og {b.name}: fælles aner = {names}, "
+              f"i familie = {is_related(a, b)}")
+view.draw_tree(family)
