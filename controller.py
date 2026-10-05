@@ -2,28 +2,28 @@ from model import Person, find_common_ancestor, is_related
 import view
 
 #generation 1
-ole=Person("Ole", "Male")
-inge=Person("Inge", "Female")
-hans=Person("Hans", "Male")
-grethe=Person("Grethe", "Female")
-jens=Person("Jens", "Male")
+Ole = Person("Ole")
+Inge = Person("Inge")
+Hans = Person("Hans")
+Grethe = Person("Grethe")
+Jens = Person("Jens")
 
 #generation 2
-anne=Person("Anne", mother=inge, father=ole)
-peter=Person("Peter", mother=grethe, father=hans)
-lise=Person("Lise", mother=grethe, father=hans)
+Anne=Person("Anne", mother=Inge, father=Ole)
+Peter=Person("Peter", mother=Grethe, father=Hans)
+Lise=Person("Lise", mother=Grethe, father=Hans)
 
 #generation 3
-nikolaj=Person("Nikolaj", mother=anne, father=peter)
-sofie=Person("Sofie", mother=anne, father=peter)
-mads=Person("Mads", mother=lise, father=jens)
+Nikolaj=Person("Nikolaj", mother=Anne, father=Peter)
+Sofie=Person("Sofie", mother=Anne, father=Peter)
+Mads=Person("Mads", mother=Lise, father=Jens)
 
-family = [ole, inge, hans, grethe, jens, anne, peter, lise, nikolaj, sofie, mads]
+family = [Ole, Inge, Hans, Grethe, Jens, Anne, Peter, Lise, Nikolaj, Sofie, Mads]
 
-view.show(nikolaj)
-view.show(hans)
+view.show(Nikolaj)
+view.show(Hans)
 
-pairs = [(nikolaj, sofie), (nikolaj, mads), (anne, jens)]
+pairs = [(Nikolaj, Sofie), (Nikolaj, Mads), (Anne, Jens)]
 for a, b in pairs:
     names = [p.name for p in find_common_ancestor(a, b)]
     view.show(f"{a.name} og {b.name}: fælles aner = {names}, "

@@ -4,7 +4,7 @@ def show(text):
     print(text)
 
 def generation(person):
-    parents=person.parents()
+    parents = person.get_parents()
     if not parents:
         return 0
     return 1 + max(generation(p) for p in parents)
@@ -22,7 +22,7 @@ def draw_tree(people):
     fig, ax = plt.subplots(figsize=(10,6))
 
     for p in people:
-        for parent in p.parents():
+        for parent in p.get_parents():
             ax.plot(*zip(pos[p], pos[parent]), color="gray", zorder = 1)
 
     for p, (x, y) in pos.items():
