@@ -1,4 +1,4 @@
-from model import Person, find_common_ancestor, is_related
+from model import find_common_ancestor, is_related
 
 class FamilyController:
     def __init__(self, view, model):
@@ -16,4 +16,3 @@ class FamilyController:
     def show_tree(self):
         self.view.draw_tree(self.model.people)
 
-        
