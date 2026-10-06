@@ -1,31 +1,19 @@
 from model import Person, find_common_ancestor, is_related
-import view
 
-#generation 1
-Ole = Person("Ole")
-Inge = Person("Inge")
-Hans = Person("Hans")
-Grethe = Person("Grethe")
-Jens = Person("Jens")
+class FamilyController:
+    def __init__(self, view, model):
+        self.view = view
+        self.model = model
 
-#generation 2
-Anne=Person("Anne", mother=Inge, father=Ole)
-Peter=Person("Peter", mother=Grethe, father=Hans)
-Lise=Person("Lise", mother=Grethe, father=Hans)
+    def show_person(self, person):
+        self.view.show(person)
 
-#generation 3
-Nikolaj=Person("Nikolaj", mother=Anne, father=Peter)
-Sofie=Person("Sofie", mother=Anne, father=Peter)
-Mads=Person("Mads", mother=Lise, father=Jens)
+    def check_pair(self, a, b):
+        names = [p.name for p in find_common_ancestor(a, b)]
+        self.view.model(f"{a.name} og {b.name}: fælles aner = {names}, "
+                        f"i familie = {is_related(a,b)}")
 
-family = [Ole, Inge, Hans, Grethe, Jens, Anne, Peter, Lise, Nikolaj, Sofie, Mads]
+    def show_tree(self):
+        self.view.draw_tree(self.model.people)
 
-view.show(Nikolaj)
-view.show(Hans)
-
-pairs = [(Nikolaj, Sofie), (Nikolaj, Mads), (Anne, Jens)]
-for a, b in pairs:
-    names = [p.name for p in find_common_ancestor(a, b)]
-    view.show(f"{a.name} og {b.name}: fælles aner = {names}, "
-              f"i familie = {is_related(a, b)}")
-view.draw_tree(family)
+        
