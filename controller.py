@@ -10,7 +10,7 @@ class FamilyController:
 
     def check_pair(self, a, b):
         names = [p.name for p in find_common_ancestor(a, b)]
-        self.view.model(f"{a.name} og {b.name}: fælles aner = {names}, "
+        self.view.show(f"{a.name} og {b.name}: fælles aner = {names}, "
                         f"i familie = {is_related(a,b)}")
 
     def show_tree(self):

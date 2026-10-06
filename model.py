@@ -34,3 +34,4 @@ class FamilyModel:
 
     def add(self, person):
         self.people.append(person)
+        return person
