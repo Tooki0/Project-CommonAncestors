@@ -27,3 +27,10 @@ def find_common_ancestor(a, b):
 
 def is_related(a, b):
     return len(find_common_ancestor(a, b)) > 0
+
+class FamilyModel:
+    def __init__(self):
+        self.people = []
+
+    def add(self, person):
+        self.people.append(person)
